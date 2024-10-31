@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+    find a way to find search result with all inputs
+    <%- include('../views/navbar.ejs'); %>
+    <div>
+        <form action="../search/query" method="post">
+            id: <input name="id" type="text" class="search-input" >
+            product name: <input name="productName" type="text" class="search-input" >
+            product type: <input name="productType" type="text" class="search-input" >
+            quantity: <input name="quantity" type="text" class="search-input" >
+            expiration date: <input name="expirationDate" type="text" class="search-input" >
+            last ordered: <input name="lastOrdered" type="text" class="search-input" >
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div>
+        <% if (locals.searchResults != undefined) {%>
+            <% locals.searchResults.map((entry) => { %>
+            <div>
+                <ul>
+                    <li>id: <%= entry.id %></li>
+                    <li>product name: <%= entry.product_name %></li>
+                    <li>product type: <%= entry.product_type %></li>
+                    <li>quantity: <%= entry.quantity %></li>
+                    <li>expiration date: <%= entry.expiration_date %></li>
+                    <li>last ordered: <%= entry.last_ordered %></li>
+                </ul>
+            </div>
+                <% }) %>
+        <% } %>
+    </div>
+</body>
+</html>

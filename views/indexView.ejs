@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/indexstyles.css">
+    <title>Home</title>
+</head>
+<body>
+
+<%- include('../views/navbar.ejs'); %>
+
+here are the newest items available
+
+<% locals.inventory.reverse().map((item) => { %>
+  <ul class="item-entry">
+    <li>inventory id: <%= item.id %></li>
+    <li>product name: <%= item.product_name %></li>
+    <li>product type: <%= item.product_type %></li>
+    <li>quantity: <%= item.quantity %></li>
+    <li>expiration date: <%= item.expiration_date %></li>
+    <li>last ordered: <%= item.last_ordered %></li>
+  </ul>
+  <% }) %>
+
+</body>
+</html>

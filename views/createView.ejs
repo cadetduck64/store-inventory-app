@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New item</title>
+</head>
+<body>
+    <%- include('../views/navbar.ejs'); %>
+
+    create new item
+    <form action="../create" method="post">
+        product name <input required name="itemName" type="text" class="item-input" placeholder="soup"></input>
+        product type<input required name="itemType" type="text" class="item-input" placeholder="canned good"></input>
+        quanity <input required name="quantity" type="number" class="item-input" placeholder="12"></input>
+        expiration date<input required name="expirationDate" type="text" class="item-input" placeholder="10/18/2058"></input>
+        last ordered <input required name="lastOrdered" type="text" class="item-input" placeholder="today"></input>
+        <button type="submit">create item</button>
+    </form>
+    
+</body>
+</html>

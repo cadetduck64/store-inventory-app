@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self';"/> -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; script-src 'self' https://somedomain.com/ 'unsafe-inline' 'unsafe-eval';  media-src *">
+    <title>Update item</title>
+    <script src="/updateView.js" type="text/javascript" async></script>
+</head>
+<body>
+    finish adding item through front end
+    <div id="update-form">
+        <form action="update/updateentry" method="post">
+            product ID: <input name="updateId" class="update-id" readonly><%= %></input>
+            product name: <input name="updateName" class="update-name"><%=locals.inventory.product_name %></input>
+            product type: <input name="updateType" class="update-type"><%=locals.inventory.product_type %></input>
+            quantity: <input name="updateQuantity" class="update-quantity"><%=locals.inventory.quantity %></input>
+            expiration date: <input name="updateExpiration" class="update-expiration"><%=locals.inventory.expiration_date %></input>
+            last ordered: <input name="updateLastOrdered" class="update-last-ordered"><%=locals.inventory.last_ordered %></input>
+            <button id="update-button" type="submit" id="updateInfoId">submit Update</button>
+        </form> 
+    </div>
+
+    <%- include('../views/navbar.ejs'); %>
+
+    <% locals.inventory.map((item) => { %>
+        <ul class="item-entry">
+          <div>inventory id:<li class="item-id"> <%= item.id %></li></div>
+          product name:<li class="product-name"> <%= item.product_name %></li>
+          product type: <li class="product-type"><%= item.product_type %></li>
+          quantity: <li class="quantity"><%= item.quantity %></li>
+          expiration date: <li class="expiration-date"><%= item.expiration_date %></li>
+          last ordered: <li class="last-ordered"><%= item.last_ordered %></li>
+          <button class="choose-update">update Item</button>
+          <a href="update/delete/<%= item.id %>"><button>delete Item</button></a>
+        </ul>
+    <% }) %>
+
+    need to program logic for editing all item columns
+    need to program logic for deleting entries
+
+</body>
+</html>
