@@ -1,4 +1,4 @@
-const pool = require('./pool')
+const pool = require('../pool')
 
 getAllItems = async () => {
     const {rows} = await pool.query('select * from food;')
