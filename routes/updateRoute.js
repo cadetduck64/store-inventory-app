@@ -12,7 +12,7 @@ updateRoute.get('/', async (req, res) => {
 })
 
 updateRoute.get('/delete/:id', async (req, res) => {
-    console.log(req.params.id)
+    // console.log(req.params.id)
     await updateControllerdeleteItem(req.params.id)
     res.redirect('/update')
 })
